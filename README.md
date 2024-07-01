@@ -20,6 +20,13 @@
     Depois basta executar o comando docker compose para rodar o projeto localmente:
     docker-compose up --build
 
+    Swagger da aplicação rodando:
+    http://localhost:8080/swagger-ui/index.html#/
+
+    Usuário e senha para autenticação da API:
+    Usuário: username
+    Senha: password
+
 ## Observação:
     As respostas da API, foi desenvolvida conforme a solicitação.
 
