@@ -1,11 +1,13 @@
 package br.com.miniautorizador.domain.repositories.entities;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
@@ -18,11 +20,11 @@ public class CardEntity {
     private Long id;
 
     @Column(name = "card_number")
-    private String numeroCartao;
+    private String cardNumber;
 
     @Column(name = "card_balance")
-    private BigDecimal valor;
+    private BigDecimal cardBalance;
 
     @Column(name = "password")
-    private String senha;
+    private String password;
 }

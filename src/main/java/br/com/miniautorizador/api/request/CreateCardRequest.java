@@ -2,24 +2,26 @@ package br.com.miniautorizador.api.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-import java.math.BigDecimal;
-
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class CreateCardRequest {
 
+    @NotNull(message = "O número do cartão não pode ser nulo.")
+    @NotEmpty(message = "O número do cartão não pode ser vazio.")
     @JsonProperty("numeroCartao")
     @Schema(name = "numeroCartao", description = "Número do cartão do beneficiário", example = "6549873025634501")
-    private String numeroCartao;
+    private String cardNumber;
 
-    @JsonProperty("valor")
-    @Schema(name = "valor", description = "Valor do benefício.", type = "decimal", example = "500.00")
-    private BigDecimal valor;
-
+    @NotNull(message = "A senha não pode ser nula.")
+    @NotEmpty(message = "A senha não pode ser vazia.")
     @JsonProperty("senha")
     @Schema(name = "senha", description = "Número da senha do cartão do beneficiário", example = "1234")
-    private String senha;
+    private String password;
 }
